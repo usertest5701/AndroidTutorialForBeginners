@@ -73,24 +73,6 @@ EditText etCity;
             return null;
         }
         protected void onProgressUpdate(String... progress) {
-
-            try {
-                JSONObject json= new JSONObject(progress[0]);
-
-                JSONObject query=json.getJSONObject("query");
-                JSONObject results=query.getJSONObject("results");
-                JSONObject channel=results.getJSONObject("channel");
-                JSONObject astronomy=channel.getJSONObject("astronomy");
-                String sunset=astronomy.getString("sunset");
-                String sunrise=astronomy.getString("sunrise");
-
-                //display response data
-                Toast.makeText(getApplicationContext(),"sunset:"+ sunset + ",sunrise:"+ sunrise,Toast.LENGTH_LONG).show();
-
-            } catch (Exception ex) {
-            }
-
-
         }
 
         protected void onPostExecute(String  result2){
